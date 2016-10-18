@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+
+  ecmascript:
+    build:
+      context: ../source
+      dockerfile: Dockerfile
+    volumes:
+      - ../source/src:/usr/src/app/src
+    ports:
+      - 4000:4000
+
+# networks:
+  # back-tier:
+  # front-tier:
+# volumes:
+  # db-data:
