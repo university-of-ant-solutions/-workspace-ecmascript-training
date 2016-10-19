@@ -32,5 +32,3 @@ test('es2015 \ 03-template-strings \ template strings looping', (t) => {
     </div>
    */
 });
-
-
