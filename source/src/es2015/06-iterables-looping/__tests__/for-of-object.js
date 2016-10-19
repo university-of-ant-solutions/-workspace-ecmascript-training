@@ -14,8 +14,3 @@ test('es2015 \ 06-iterables-looping \ for of examples', (t) => {
   }
   t.deepEqual(r, ['color', 'size', 'weight', 'sugar']);
 });
-
-
-
-
-
