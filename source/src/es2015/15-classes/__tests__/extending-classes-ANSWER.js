@@ -1,7 +1,7 @@
 import test from 'tape';
 
 test('es2015 \ 15-classes \ extending classes ANSWER', (t) => {
-  t.plan(6);
+  t.plan(5);
 
   class Animal {
     constructor(name) {
@@ -31,7 +31,6 @@ test('es2015 \ 15-classes \ extending classes ANSWER', (t) => {
 
   const rhino = new Animal('Rhiney');
   const snickers = new Dog('Snickers', 'King Charles');
-  t.equal(rhino.bark(), 'BARK BARK BARK!');
   t.equal(snickers.bark(), 'BARK BARK BARK!');
   rhino.drink();
   snickers.drink();
