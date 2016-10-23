@@ -8,7 +8,9 @@
 ### Licensing
 Please see the file called LICENSE.
 
-### tutorials
+### Todo
+
+### Tutorials
 - https://ponyfoo.com/articles/tagged/es6-in-depth
 - http://kangax.github.io/compat-table/es6/
 - https://github.com/feross/standard/blob/master/README.md
