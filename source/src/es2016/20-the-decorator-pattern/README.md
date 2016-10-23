@@ -1,0 +1,6 @@
+- http://technologyadvice.github.io/es7-decorators-babel6/
+- https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy
+- https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841#.sy4lct35a
+- https://github.com/tc39/proposal-decorators
+- http://tc39.github.io/proposal-decorators/
+- https://kangax.github.io/compat-table/esnext/
