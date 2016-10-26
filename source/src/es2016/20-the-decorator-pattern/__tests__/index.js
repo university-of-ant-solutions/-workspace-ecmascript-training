@@ -1,3 +1,4 @@
+/**
 const test = require('tape');
 
 function readOnly(target, key, descriptor) {
@@ -28,3 +29,4 @@ test('class test', function (t) {
     t.equal(e.message, 'Cannot assign to read only property \'meow\' of #<Cat>');
   }
 });
+*/
