@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../source/src:/usr/src/app/src
+      - ../source/yarn.lock:/usr/src/app/yarn.lock
     ports:
       - 4000:4000
 
