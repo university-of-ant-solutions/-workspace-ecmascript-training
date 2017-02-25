@@ -1,6 +1,6 @@
 {
   "name": "ecmascript-training",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ecmascript training",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,6 @@
   },
   "engines": {
     "node": "6.7.0",
-    "npm": "3.10.8"
+    "npm": "3.10.10"
   }
 }
