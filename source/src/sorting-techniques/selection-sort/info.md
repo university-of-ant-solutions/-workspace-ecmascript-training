@@ -1,6 +1,5 @@
 ### Algorithm
 
-
 ```
 Step 1 − Set MIN to location 0
 Step 2 − Search the minimum element in the list
