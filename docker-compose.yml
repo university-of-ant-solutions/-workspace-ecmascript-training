@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+
+  ecmascript:
+    build:
+      context: ./source
+      dockerfile: Dockerfile
+    volumes:
+      - ./source/src:/usr/src/app/src
+      - ./source/coverage:/usr/src/app/coverage
+      - ./source/yarn.lock:/usr/src/app/yarn.lock
+      - ./source/package.json:/usr/src/app/package.json
+    ports:
+      - 4000:4000
+
+# networks:
+  # back-tier:
+  # front-tier:
+# volumes:
+  # db-data:

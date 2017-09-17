@@ -1,5 +1,7 @@
 # ecmascript-training
 
+[![pipeline status](https://gitlab.com/particle4dev/ecmascript-training/badges/develop/pipeline.svg)](https://gitlab.com/particle4dev/ecmascript-training/commits/develop)
+
 ### Installation
 + clone this repo
 + build docker images: `make start`
