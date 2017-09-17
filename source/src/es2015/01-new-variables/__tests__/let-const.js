@@ -38,7 +38,7 @@ test('es2015 \ 01-new-variables \ let const', (t) => {
     wes.job = 'it'
   }
   catch (e) {
-    t.equal(e.message, 'Can\'t add property job, object is not extensible');
+    t.equal(e.message, 'Cannot add property job, object is not extensible');
   }
 
 });

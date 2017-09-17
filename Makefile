@@ -17,4 +17,4 @@ logs:
 	docker-compose -f ./0compose/docker-compose.dev.yml logs -f $(filter-out $@,$(MAKECMDGOALS))
 
 exec:
-	./0compose/docker-compose-exec.sh $(filter-out $@,$(MAKECMDGOALS)) bash
+	./0compose/docker-compose-exec.sh $(filter-out $@,$(MAKECMDGOALS)) sh

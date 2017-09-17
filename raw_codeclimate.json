@@ -1,0 +1,24 @@
+[[DEBUG] duplication:stable engine config: {"enabled":true,"config":{"languages":["javascript"]},"include_paths":["nodemon.json","Dockerfile","package.json","src/",".babelrc",".eslintignore",".eslintrc",".gitignore","coverage/",".dockerignore","yarn.lock",".codeclimate.yml","docker-entrypoint.sh"]}
+[DEBUG] docker run: ["docker", "run", "--name", "cc-engines-duplication-stable-59eef0b4-8457-4654-b4a8-602e8c3a3640", "--cap-drop", "all", "--label", "com.codeclimate.label=ae6992ac-817c-4e3e-8e2a-aca0fe00aeb7", "--memory", "512000000", "--memory-swap", "-1", "--net", "none", "--rm", "--volume", "/Volumes/Data/projects/training/ecmascript-training/source:/code:ro", "--volume", "/tmp/cc/89416a59-e5f8-4a4b-b6a0-9a3f3a68930a:/config.json:ro", "--user", "9000:9000", "codeclimate/codeclimate-duplication"]
+error: (CC::Analyzer::Engine::EngineFailure) engine duplication:stable failed with status 1 and stderr 
+/usr/src/app/bin/duplication:10:in `read': Is a directory @ io_fread - /config.json (Errno::EISDIR)
+	from /usr/src/app/bin/duplication:10:in `<main>'
+[DEBUG] backtrace: /usr/src/app/lib/cc/analyzer/raising_container_listener.rb:23:in `finished'
+	/usr/src/app/lib/cc/analyzer/composite_container_listener.rb:17:in `block in finished'
+	/usr/src/app/lib/cc/analyzer/composite_container_listener.rb:17:in `each'
+	/usr/src/app/lib/cc/analyzer/composite_container_listener.rb:17:in `finished'
+	/usr/src/app/lib/cc/analyzer/container.rb:78:in `run'
+	/usr/src/app/lib/cc/analyzer/engine.rb:52:in `run'
+	/usr/src/app/lib/cc/analyzer/engines_runner.rb:59:in `block in run_engine'
+	/usr/src/app/lib/cc/analyzer/formatters/formatter.rb:29:in `engine_running'
+	/usr/src/app/lib/cc/analyzer/engines_runner.rb:58:in `run_engine'
+	/usr/src/app/lib/cc/analyzer/engines_runner.rb:22:in `block in run'
+	/usr/src/app/lib/cc/analyzer/engines_runner.rb:22:in `each'
+	/usr/src/app/lib/cc/analyzer/engines_runner.rb:22:in `run'
+	/usr/src/app/lib/cc/cli/analyze.rb:31:in `block in run'
+	/usr/src/app/lib/cc/cli/analyze.rb:29:in `chdir'
+	/usr/src/app/lib/cc/cli/analyze.rb:29:in `run'
+	/usr/src/app/lib/cc/cli/command.rb:73:in `execute'
+	/usr/src/app/lib/cc/cli/runner.rb:26:in `run'
+	/usr/src/app/lib/cc/cli/runner.rb:9:in `run'
+	/usr/src/app/bin/codeclimate:6:in `<main>'
