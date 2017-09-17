@@ -1,0 +1,36 @@
+image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-python-3.6.1-awscli-1.11.151 # Use docker image, covered in Use Docker
+
+# cache
+stages:
+  - test
+  - post-test
+
+# Predefined scopes
+
+testcoverage:
+  before_script: []
+  image: node:8.2.1-alpine
+  stage: test
+  script:
+    - cd source
+    - yarn install
+    - npm run coverage
+  artifacts:
+    paths: [source/coverage]
+
+codecoverage:
+  before_script: []
+  image: docker:latest
+  stage: test
+  variables:
+    SETUP_DB: "false"
+    DOCKER_DRIVER: overlay
+  services:
+    - docker:dind
+  script:
+    # - docker run --env CODECLIMATE_CODE="$PWD/source" --env CODECLIMATE_DEBUG=1 --volume "$PWD/source":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f json > raw_codeclimate.json
+    # - cat raw_codeclimate.json | docker run -i stedolan/jq -c 'map({check_name,fingerprint,location})' > codeclimate.json
+    - docker run --env CODECLIMATE_CODE="$PWD/source" --env CODECLIMATE_DEBUG=1 --volume "$PWD/source":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f html > out.html
+  artifacts:
+    # paths: [codeclimate.json]
+    paths: [out.html]
