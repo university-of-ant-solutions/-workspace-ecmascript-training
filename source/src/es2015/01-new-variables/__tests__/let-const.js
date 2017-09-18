@@ -6,8 +6,7 @@ test('es2015 \ 01-new-variables \ let const', (t) => {
   const key = 'abc123';
   try {
     key = 'a';
-  }
-  catch (e) {
+  } catch (e) {
     t.equal(e.message, 'Assignment to constant variable.');
   }
 
@@ -15,30 +14,26 @@ test('es2015 \ 01-new-variables \ let const', (t) => {
   try {
     points = 10;
     t.equal(points, 10);
-  }
-  catch (e) {
+  } catch (e) {
     t.fail(e.message);
   }
 
   // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
   const person = {
-    name: 'Wes'
+    name: 'Wes',
   };
 
   try {
     person.age = 28;
     t.equal(person.age, 28);
-  }
-  catch (e) {
+  } catch (e) {
     t.fail(e.message);
   }
 
   try {
     const wes = Object.freeze(person);
-    wes.job = 'it'
-  }
-  catch (e) {
+    wes.job = 'it';
+  } catch (e) {
     t.equal(e.message, 'Cannot add property job, object is not extensible');
   }
-
 });

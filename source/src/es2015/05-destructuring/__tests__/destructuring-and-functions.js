@@ -8,7 +8,7 @@ test('es2015 \ 05-destructuring \ destructuring and functions', (t) => {
       USD: amount * 0.76,
       GPB: amount * 0.53,
       AUD: amount * 1.01,
-      MEX: amount * 13.30
+      MEX: amount * 13.30,
     };
     return converted;
   }
@@ -17,7 +17,5 @@ test('es2015 \ 05-destructuring \ destructuring and functions', (t) => {
   }
   const bill = tipCalc({ tip: 0.20, total: 200 });
   t.equal(bill, 200 + (0.20 * 200) + (0.13 * 200));
-
 });
-
 

@@ -1,6 +1,26 @@
 image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-python-3.6.1-awscli-1.11.151 # Use docker image, covered in Use Docker
 
 # cache
+.default-cache: &default-cache
+  key: "node_modules"
+  paths:
+    - node_modules/
+
+.push-cache: &push-cache
+  cache:
+    <<: *default-cache
+    policy: push
+
+.pull-cache: &pull-cache
+  cache:
+    <<: *default-cache
+    policy: pull
+
+before_script:
+  - chmod +x -R bin/ && for f in bin/utils/*; do source $f; done
+  - cd source
+  - npm install
+
 stages:
   - test
   - post-test
@@ -8,20 +28,23 @@ stages:
 # Predefined scopes
 
 testcoverage:
-  before_script: []
-  image: node:8.2.1-alpine
+  image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-nodejs-8.5.0
   stage: test
+  cache:
+    <<: *default-cache
   script:
-    - cd source
-    - yarn install
-    - npm run coverage
+    - exitCode=$($CI_PROJECT_DIR/bin/generateTestReport)
+    - set +e && npm run coverage && set -e
+    - slackpost -f="tape-test-report" --text="Report:" -u="Gitlab - Test coverage report"
+    - exit $exitCode
   artifacts:
     paths: [source/coverage]
 
 codecoverage:
-  before_script: []
-  image: docker:latest
+  image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-nodejs-8.5.0
   stage: test
+  cache:
+    <<: *default-cache
   variables:
     SETUP_DB: "false"
     DOCKER_DRIVER: overlay
@@ -30,7 +53,10 @@ codecoverage:
   script:
     # - docker run --env CODECLIMATE_CODE="$PWD/source" --env CODECLIMATE_DEBUG=1 --volume "$PWD/source":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f json > raw_codeclimate.json
     # - cat raw_codeclimate.json | docker run -i stedolan/jq -c 'map({check_name,fingerprint,location})' > codeclimate.json
-    - docker run --env CODECLIMATE_CODE="$PWD/source" --env CODECLIMATE_DEBUG=1 --volume "$PWD/source":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f html > out.html
+    - exitCode=$($CI_PROJECT_DIR/bin/generateCodeReport)
+    - docker run --env CODECLIMATE_CODE="$PWD" --env CODECLIMATE_DEBUG=1 --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f html > out.html
+    - slackpost -f="eslint-codeframe-report" --text="Report:" -u="Gitlab - Code coverage report"
+    - exit $exitCode
   artifacts:
     # paths: [codeclimate.json]
-    paths: [out.html]
+    paths: [source/out.html]

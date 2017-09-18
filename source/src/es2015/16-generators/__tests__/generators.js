@@ -1,7 +1,6 @@
 import test from 'tape';
 
 test('es2015 \ 16-generators \ generators', (t) => {
-
   t.plan(6);
 
   function* listPeople() {

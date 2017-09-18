@@ -21,5 +21,4 @@ test('es2015 \ 05-destructuring \ destructuring arrays', (t) => {
   t.equal(captain, 'Wes');
   t.equal(assistant, 'Harry');
   t.deepEqual(players, ['Sarah', 'Keegan', 'Riker']);
-
 });

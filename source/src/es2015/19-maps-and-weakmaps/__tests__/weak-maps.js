@@ -2,7 +2,6 @@
 import test from 'tape';
 
 test('es2015 \ 19-maps-and-weakmaps \ weak-maps.js', (t) => {
-
   t.plan(2);
   let dog1 = { name: 'Snickers' };
   let dog2 = { name: 'Sunny' };
@@ -14,5 +13,4 @@ test('es2015 \ 19-maps-and-weakmaps \ weak-maps.js', (t) => {
   dog2 = null;
   t.equal(strong.get(dog1), undefined);
   t.equal(weak.get(dog2), undefined);
-
 });

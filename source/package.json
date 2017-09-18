@@ -6,8 +6,10 @@
   "scripts": {
     "start": "npm run test:watch",
     "lint": "eslint --config=./.eslintrc src",
+    "lint:codeframe": "eslint --config=./.eslintrc src -f codeframe > eslint-codeframe-report",
     "lint:fix": "eslint --fix --config=./.eslintrc src",
     "test:tape": "NODE_ENV=tests ./node_modules/.bin/tape -r babel-register ./src/**/__tests__/**/index.js | tap-notify | tap-diff",
+    "test:tape-file": "NODE_ENV=tests ./node_modules/.bin/tape -r babel-register ./src/**/__tests__/**/index.js | tap-notify | tap-diff > tape-test-report",
     "test:watch": "nodemon --watch src -q -x 'npm run test:tape'",
     "test:coverage": "./node_modules/.bin/nyc npm run test:tape",
     "coverage:html": "./node_modules/.bin/nyc report --reporter=html",

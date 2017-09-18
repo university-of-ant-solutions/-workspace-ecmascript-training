@@ -3,7 +3,7 @@ import map from 'lodash/map';
 import range from 'lodash/range';
 
 function repeat(times, VALUE) {
-  return map(range(times), function() { return VALUE; });
+  return map(range(times), () => VALUE);
 }
 
 function repeatedly(times, func) {
@@ -18,10 +18,9 @@ function iterateUntil(fun, check, init) {
     result = fun(result);
   }
   return ret;
-};
+}
 
 test('function-js \ 04-higher-order-functions \ repeat-repeatedly-iterate-until ', (t) => {
-
   t.plan(3);
 
   // repeat funtion, which takes a number and a value and builds an array containing some number of the value,
@@ -36,7 +35,6 @@ test('function-js \ 04-higher-order-functions \ repeat-repeatedly-iterate-until 
   // iterateUntil
   // may want to instead call a given function until its return value crosses some threshold
   //
-  const result3 = iterateUntil((n)=>(n+n), (n)=>(n <= 1024), 1);
+  const result3 = iterateUntil(n => (n + n), n => (n <= 1024), 1);
   t.deepEqual(result3, [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]);
-
 });

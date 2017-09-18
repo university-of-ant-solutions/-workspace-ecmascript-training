@@ -5,7 +5,6 @@ import User, { createURL, gravatar } from './src/user';
 import test from 'tape';
 
 test('es2015 \ 13-javascript-modules-and-using-npm \ index', (t) => {
-
   t.plan(6);
   t.equal(old, 100);
   t.equal(dog, 'snickers');
@@ -16,7 +15,7 @@ test('es2015 \ 13-javascript-modules-and-using-npm \ index', (t) => {
   t.deepEqual(wes, {
     name: 'Wes Bos',
     email: 'wesbos@gmail.com',
-    website: 'wesbos.com'
+    website: 'wesbos.com',
   });
   const profile = createURL(wes.name);
   const image = gravatar(wes.email);

@@ -9,5 +9,4 @@ test('es2015 \ 05-destructuring \ destructuring in action', (t) => {
   [inRing, onSide] = [onSide, inRing];
   t.equal(inRing, 'The Rock');
   t.equal(onSide, 'Hulk Hogan');
-
 });

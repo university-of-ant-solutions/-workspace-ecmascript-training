@@ -11,33 +11,33 @@ test('es2015 \ 09-object-literal-upgrades \ object literal upgrades', (t) => {
     last,
     age,
     breed,
-    pals: ['Hugo', 'Sunny']
+    pals: ['Hugo', 'Sunny'],
   };
   t.deepEqual(dog, {
     firstName: 'snickers',
     last: 'bos',
     age: 2,
     breed: 'King Charles Cav',
-    pals: ['Hugo', 'Sunny']
+    pals: ['Hugo', 'Sunny'],
   });
 
   const modal = {
     create(selector) {},
     open(content) {},
-    close(goodbye) {}
+    close(goodbye) {},
   };
-  t.deepEqual(Object.keys(modal), [ 'create', 'open', 'close' ]);
+  t.deepEqual(Object.keys(modal), ['create', 'open', 'close']);
 
   function invertColor(color) {
-      return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+    return `#${(`000000${(0xFFFFFF ^ parseInt(color.substring(1), 16)).toString(16)}`).slice(-6)}`;
   }
   const key = 'pocketColor';
   const value = '#ffc600';
   const tShirt = {
     [key]: value,
-    [`${key}Opposite`]: invertColor(value)
+    [`${key}Opposite`]: invertColor(value),
   };
-  t.deepEqual(Object.keys(tShirt), [ 'pocketColor', 'pocketColorOpposite' ]);
+  t.deepEqual(Object.keys(tShirt), ['pocketColor', 'pocketColorOpposite']);
 
   const keys = ['size', 'color', 'weight'];
   const values = ['medium', 'red', 100];
@@ -45,6 +45,6 @@ test('es2015 \ 09-object-literal-upgrades \ object literal upgrades', (t) => {
     [keys.shift()]: values.shift(),
     [keys.shift()]: values.shift(),
     [keys.shift()]: values.shift(),
-  }
+  };
   t.deepEqual(Object.keys(shirt), ['size', 'color', 'weight']);
 });

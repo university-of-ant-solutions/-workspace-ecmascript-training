@@ -19,12 +19,9 @@ test('es2015 \ 15-classes \ extending arrays ANSWER', (t) => {
     { name: 'Bee Movie', stars: 10 },
     { name: 'Star Wars Trek', stars: 1 },
     { name: 'Virgin Suicides', stars: 7 },
-    { name: 'King of the Road', stars: 8 }
+    { name: 'King of the Road', stars: 8 },
   );
   movies.add({ name: 'Titanic', stars: 5 });
-  const m = movies.reduce((total, m) => {
-    return total + m.stars;
-  }, 0);
+  const m = movies.reduce((total, m) => total + m.stars, 0);
   t.deepEqual(31, m);
-
 });
