@@ -24,3 +24,4 @@ ratings:
 exclude_paths:
 - test/
 - node_modules/
+- .yarn-cache/
