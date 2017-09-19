@@ -1,10 +1,11 @@
-image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-python-3.6.1-awscli-1.11.151 # Use docker image, covered in Use Docker
+image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-nodejs-8.5.0
 
 # cache
 .default-cache: &default-cache
   key: "node_modules"
   paths:
     - node_modules/
+    - .yarn-cache/
 
 .push-cache: &push-cache
   cache:
@@ -19,7 +20,8 @@ image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-python-3.6.1
 before_script:
   - chmod +x -R bin/ && for f in bin/utils/*; do source $f; done
   - cd source
-  - npm install
+  - node --version
+  - yarn install --frozen-lockfile --cache-folder .yarn-cache
 
 stages:
   - test
@@ -28,7 +30,6 @@ stages:
 # Predefined scopes
 
 testcoverage:
-  image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-nodejs-8.5.0
   stage: test
   cache:
     <<: *default-cache
@@ -39,9 +40,9 @@ testcoverage:
     - exit $exitCode
   artifacts:
     paths: [source/coverage]
+    expire_in: 3d
 
 codecoverage:
-  image: registry.gitlab.com/particle4dev/build-images:docker-17.07.0-nodejs-8.5.0
   stage: test
   cache:
     <<: *default-cache
@@ -51,8 +52,6 @@ codecoverage:
   services:
     - docker:dind
   script:
-    # - docker run --env CODECLIMATE_CODE="$PWD/source" --env CODECLIMATE_DEBUG=1 --volume "$PWD/source":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f json > raw_codeclimate.json
-    # - cat raw_codeclimate.json | docker run -i stedolan/jq -c 'map({check_name,fingerprint,location})' > codeclimate.json
     - exitCode=$($CI_PROJECT_DIR/bin/generateCodeReport)
     - docker run --env CODECLIMATE_CODE="$PWD" --env CODECLIMATE_DEBUG=1 --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f html > out.html
     - slackpost -f="eslint-codeframe-report" --text="Report:" -u="Gitlab - Code coverage report"
@@ -60,3 +59,4 @@ codecoverage:
   artifacts:
     # paths: [codeclimate.json]
     paths: [source/out.html]
+    expire_in: 3d
