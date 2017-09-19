@@ -28,3 +28,19 @@ Please see the file called LICENSE.
 - https://blog.newrelic.com/2014/11/14/javascript-perf-tips/
 - http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas
 - https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e
+
+
+,
+          {
+            \"title\": \"Report\",
+            \"value\": \"$(tail -3 eslint-codeframe-report | sed 's/`/\`/g' | sed 's/"/\"/g' | sed "s/'/\'/g")\",
+            \"short\": false
+          }
+          {
+            \"title\": \"Message\",
+            \"value\": \"$(git rev-list --format=%B --max-count=1 $CI_COMMIT_SHA)\",
+            \"short\": false
+          },
+          {
+
+

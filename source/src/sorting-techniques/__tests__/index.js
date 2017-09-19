@@ -4,12 +4,12 @@ import insertion from '../insertion-sort/index.js';
 import selection from '../selection-sort/index.js';
 
 const algorithm = {
-  'bubble': bubble,
-  'insertion': insertion,
-  'selection': selection,
+  bubble,
+  insertion,
+  selection,
 };
 test('sorting techniques', (assert) => {
-  for (let prop in algorithm) {
+  for (const prop in algorithm) {
     if (algorithm.hasOwnProperty(prop)) {
       test(`${prop}-sort \ return an ordered array`, (t) => {
         t.plan(2);

@@ -11,12 +11,11 @@ test('es2015 \ 05-destructuring \ destructuring intro', (t) => {
         facebook: 'https://facebook.com/wesbos.developer',
       },
       web: {
-        blog: 'https://wesbos.com'
-      }
-    }
+        blog: 'https://wesbos.com',
+      },
+    },
   };
   const { twitter: tweet, facebook: fb } = wes.links.social;
   t.equal(tweet, 'https://twitter.com/wesbos');
   t.equal(fb, 'https://facebook.com/wesbos.developer');
-
 });

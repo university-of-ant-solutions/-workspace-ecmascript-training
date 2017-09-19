@@ -1,12 +1,11 @@
 import test from 'tape';
 
 test('es2015 \ 11-symbols \ symbols', (t) => {
-
   t.plan(1);
   const wes = Symbol('Wes');
   const person = Symbol('Wes');
   const classRoom = {
-    [Symbol('Mark')] : { grade: 50, gender: 'male' },
+    [Symbol('Mark')]: { grade: 50, gender: 'male' },
     [Symbol('olivia')]: { grade: 80, gender: 'female' },
     [Symbol('olivia')]: { grade: 80, gender: 'female' },
   };
@@ -19,5 +18,4 @@ test('es2015 \ 11-symbols \ symbols', (t) => {
     { grade: 50, gender: 'male' },
     { grade: 80, gender: 'female' },
     { grade: 80, gender: 'female' }], data);
-
 });

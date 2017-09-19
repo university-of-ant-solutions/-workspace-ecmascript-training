@@ -1,0 +1,158 @@
+#!/bin/bash
+
+. "$(pwd)/bin/utils/utils"
+# CI_PROJECT_DIR=$(pwd)
+# GITLAB_USER_LOGIN=particle4dev
+# CI_PROJECT_URL=https://gitlab.com/particle4dev/ecmascript-training
+# CI_COMMIT_SHA=cd559b4cf6f35a9544e96e6e649800e671be77f4
+# GITLAB_USER_NAME="hoang nam"
+
+# Usage: slackpost <channel=???> --text="123"
+
+# Options:
+#
+# https://api.slack.com/docs/messages/builder
+
+# slackpost --text=12345 -u="Gitlab - Code coverage report"
+
+function slackpost {
+  unset CHANNEL
+  unset DISPLAY_NAME
+  unset TEXT
+  unset READ_FILE
+
+  for i in "$@"
+  do
+  case $i in
+  -t=*|--text=*)
+  TEXT="${i#*=}"
+  shift # past argument=value
+  ;;
+  -c=*|--channel=*)
+  CHANNEL="${i#*=}"
+  shift # past argument=value
+  ;;
+  -u=*|--username=*)
+  DISPLAY_NAME="${i#*=}"
+  shift # past argument=value
+  ;;
+  -f=*|--file=*)
+  READ_FILE="${i#*=}"
+  shift # past argument=value
+  ;;
+  *)
+  # unknown option
+  ;;
+  esac
+  done
+  if [ -z $TEXT ];
+  then
+    echo "No text specified"
+    exit 1
+  fi
+  if [ -z $READ_FILE ];
+  then
+    echo "No file specified"
+    exit 1
+  fi
+  if [ -z $CHANNEL ];
+  then
+    CHANNEL="snail-drunk-noti-prj"
+  fi
+  if [ -z $DISPLAY_NAME ];
+  then
+    DISPLAY_NAME="Gitlab"
+  fi
+
+  escapedText=$(echo $TEXT | sed 's/"/\"/g' | sed "s/'/\'/g" )
+  json="{
+    \"channel\": \"#$CHANNEL\",
+    \"username\": \"$DISPLAY_NAME\",
+    \"text\": \"$escapedText\",
+    \"link_names\": 1,
+    \"attachments\": $(templates -r=$READ_FILE $CI_PROJECT_DIR/bin/templates/attachments.tmpl)
+  }"
+  curl -X POST -H 'Content-type: application/json' \
+  --data "$json" \
+  https://hooks.slack.com/services/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
+}
+
+# getLastline -n=2 ./source/Dockerfile
+# getLastline ./source/Dockerfile
+function getLastline {
+  NUMBER=1
+  for i in "$@"
+  do
+  case $i in
+  -n=*|--number=*)
+  NUMBER="${i#*=}"
+  shift # past argument=value
+  ;;
+  *)
+  # unknown option
+  ;;
+  esac
+  done
+
+  if ! fileExists $@; then
+    echo "not found file"
+    return 1
+  fi
+  echo $(tail -$NUMBER $@)
+}
+
+# templates -u=123 -p=345 ./bin/utils/attachments.tmpl
+
+function templates {
+  USER_LOGIN=$GITLAB_USER_LOGIN
+  PROJECT_URL=$CI_PROJECT_URL
+  COMMIT_SHA=$CI_COMMIT_SHA
+  USER_NAME=$GITLAB_USER_NAME
+  message=$(git rev-list --format=%B --max-count=1 $COMMIT_SHA)
+  report=""
+  for i in "$@"
+  do
+  case $i in
+  -u=*|--user-login=*)
+  USER_LOGIN="${i#*=}"
+  shift
+  ;;
+  -p=*|--project-url=*)
+  PROJECT_URL="${i#*=}"
+  shift
+  ;;
+  -c=*|--commit=*)
+  COMMIT_SHA="${i#*=}"
+  shift
+  ;;
+  -us=*|--user-name=*)
+  USER_NAME="${i#*=}"
+  shift
+  ;;
+  -r=*|--report=*)
+  report="$(getLastline -n=3 ${i#*=})"
+  shift
+  ;;
+  *)
+  # unknown option
+  ;;
+  esac
+  done
+
+  if ! fileExists $@; then
+    echo "not found file"
+    return 1
+  fi
+
+  m=$(sed -e "s;%GITLAB_USER_LOGIN%;$USER_LOGIN;g" \
+    -e "s;%GITLAB_PROJECT_URL%;$PROJECT_URL;g" \
+    -e "s;%GITLAB_COMMIT_SHA%;$COMMIT_SHA;g" \
+    -e "s;%GITLAB_USER_NAME%;$USER_NAME;g" \
+    -e "s;%report%;$report;g" \
+    -e "s;%date%;$( date +%s );g" \
+  $@)
+  match="%message%"
+  # Substring Replacement
+  # http://www.tldp.org/LDP/abs/html/string-manipulation.html
+  echo "${m//$match/$message}"
+}

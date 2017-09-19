@@ -17,7 +17,7 @@ test('es2015 \ 10-promises \ chaining promises ANSWER', (t) => {
       // find the post
       setTimeout(() => {
         const post = posts.find(post => post.id === id);
-        if(post) {
+        if (post) {
           resolve(post);
         } else {
           reject(Error('Post not found!'));
@@ -29,7 +29,7 @@ test('es2015 \ 10-promises \ chaining promises ANSWER', (t) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const authorDetails = authors.find(person => person.name === post.author);
-        if(authorDetails) {
+        if (authorDetails) {
           post.author = authorDetails;
           resolve(post);
         } else {
@@ -39,13 +39,11 @@ test('es2015 \ 10-promises \ chaining promises ANSWER', (t) => {
     });
   }
   getPostById(1)
-  .then(post => {
-    return hydrateAuthor(post);
-  })
-  .then(author => {
-    t.deepEqual({ title: 'I love JavaScript', author: { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' }, id: 1 }, author);
-  })
-  .catch(err => {
-    t.fail(err.message);
-  })
+    .then(post => hydrateAuthor(post))
+    .then((author) => {
+      t.deepEqual({ title: 'I love JavaScript', author: { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' }, id: 1 }, author);
+    })
+    .catch((err) => {
+      t.fail(err.message);
+    });
 });

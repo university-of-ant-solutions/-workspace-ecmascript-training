@@ -2,10 +2,9 @@ import test from 'tape';
 import fetch from 'node-fetch';
 
 test('es2015 \ 16-generators \ generators syncish ajax', (t) => {
-
   t.plan(3);
   function ajax(url) {
-    fetch(url).then(data => data.json()).then(data => dataGen.next(data))
+    fetch(url).then(data => data.json()).then(data => dataGen.next(data));
   }
   function* steps() {
     console.log('fetching beers');
@@ -20,5 +19,4 @@ test('es2015 \ 16-generators \ generators syncish ajax', (t) => {
   }
   const dataGen = steps();
   dataGen.next(); // kick it off
-
 });

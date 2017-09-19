@@ -1,0 +1,4 @@
+#!/bin/sh
+bin=$CI_PROJECT_DIR/source/node_modules/.bin
+NODE_ENV=tests $bin/eslint --config=./.eslintrc src -f codeframe > $CI_PROJECT_DIR/source/eslint-codeframe-report
+echo $?

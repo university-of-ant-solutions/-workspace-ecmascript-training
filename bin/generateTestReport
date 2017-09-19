@@ -1,0 +1,4 @@
+#!/bin/sh
+bin=$CI_PROJECT_DIR/source/node_modules/.bin
+NODE_ENV=tests $bin/tape -r babel-register ./src/**/__tests__/**/index.js | $bin/tap-notify | $bin/tap-diff > $CI_PROJECT_DIR/source/tape-test-report
+echo $?

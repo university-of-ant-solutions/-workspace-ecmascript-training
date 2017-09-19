@@ -1,7 +1,6 @@
 import test from 'tape';
 
 test('es2015 \ 18-sets-and-weaksets \ sets', (t) => {
-
   t.plan(2);
   const people = new Set();
   people.add('Wes');
@@ -20,6 +19,5 @@ test('es2015 \ 18-sets-and-weaksets \ sets', (t) => {
   for (const d of dogSet) {
     r.push(d);
   }
-  t.deepEqual(r, [ 'Snickers', 'Sunny' ]);
-
+  t.deepEqual(r, ['Snickers', 'Sunny']);
 });
