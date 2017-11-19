@@ -1,6 +1,6 @@
 # ecmascript training
 
-One Paragraph of project description goes here
+An open source project to help you learn JS
 
 ## Getting Started
 
@@ -8,10 +8,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You will need:
 
 ```
-Give examples
+- Docker (>= 1.12.0 required)
+- Docker Compose (>= 1.11.2 required)
 ```
 
 ### Installing
