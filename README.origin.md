@@ -58,6 +58,38 @@ Give an example
 
  - [01-new-variables](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/01-new-variables/__tests__)
 
+ - [02-arrow-functions](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/02-arrow-functions/__tests__)
+
+ - [03-template-strings](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/03-template-strings/__tests__)
+
+ - [05-destructuring](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/05-destructuring/__tests__)
+
+ - [06-iterables-looping](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/06-iterables-looping/__tests__)
+
+ - [07-an-array-of-mprovements](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/07-an-array-of-mprovements/__tests__)
+
+ - [08-say-hello-to-spread-and-rest](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/08-say-hello-to-spread-and-rest/__tests__)
+
+ - [09-object-literal-upgrades](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/09-object-literal-upgrades/__tests__)
+
+ - [10-promises](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/10-promises/__tests__)
+
+ - [11-symbols](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/11-symbols/__tests__)
+
+ - [12-code-quality-with-eslint](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/12-code-quality-with-eslint/__tests__)
+
+ - [13-javascript-modules-and-using-npm](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/13-javascript-modules-and-using-npm/__tests__)
+
+ - [15-classes](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/15-classes/__tests__)
+
+ - [16-generators](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/16-generators/__tests__)
+
+ - [17-proxies](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/17-proxies/__tests__)
+
+ - [18-sets-and-weaksets](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/18-sets-and-weaksets/__tests__)
+
+ - [17-proxies](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/19-maps-and-weakmaps/__tests__)
+
 ## Built With
 
 * [NodeJS](https://github.com/nodejs/node)
@@ -81,9 +113,3 @@ See also the list of [contributors](https://github.com/university-of-ant-solutio
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
