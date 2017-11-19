@@ -1,4 +1,4 @@
-# Project Title
+# ecmascript training
 
 One Paragraph of project description goes here
 
@@ -52,29 +52,31 @@ Explain what these tests test and why
 Give an example
 ```
 
-## Deployment
+## Content
 
-Add additional notes about how to deploy this on a live system
+### ES2015
+
+ - [01-new-variables](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/01-new-variables/__tests__)
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [NodeJS](https://github.com/nodejs/node)
+* [Babel](https://github.com/babel/babel)
+* [Webpack](https://github.com/webpack)
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/university-of-ant-solutions/ecmascript-training/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/university-of-ant-solutions/ecmascript-training/tags).
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Hoang Nam** - *Initial work* - [particle4dev](https://github.com/particle4dev)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/university-of-ant-solutions/ecmascript-training/AUTHORS) who participated in this project.
 
 ## License
 
