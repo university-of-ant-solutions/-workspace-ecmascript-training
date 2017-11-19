@@ -96,6 +96,20 @@ Give an example
 
 - [21-asynchronous](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2016/21-asynchronous/__tests__)
 
+### Function JS
+
+- [02-first-class-functions-and-applicative-programming](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/function-js/02-first-class-functions-and-applicative-programming/__tests__)
+
+- [04-higher-order-functions](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/function-js/04-higher-order-functions/__tests__)
+
+- [05-function-building-functions](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/function-js/05-function-building-functions/__tests__)
+
+- [06-recursion](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/function-js/06-recursion/__tests__)
+
+- [08-flow-based-programming](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/function-js/08-flow-based-programming/__tests__)
+
+- [09-programming-without-class](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/function-js/09-programming-without-class/__tests__)
+
 ## Built With
 
 * [NodeJS](https://github.com/nodejs/node)
