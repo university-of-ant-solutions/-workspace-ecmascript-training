@@ -88,7 +88,13 @@ Give an example
 
  - [18-sets-and-weaksets](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/18-sets-and-weaksets/__tests__)
 
- - [17-proxies](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/19-maps-and-weakmaps/__tests__)
+ - [19-maps-and-weakmaps](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2015/19-maps-and-weakmaps/__tests__)
+
+### ES2016
+
+- [20-the-decorator-pattern](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2016/19-maps-and-weakmaps/__tests__)
+
+- [21-asynchronous](https://github.com/university-of-ant-solutions/ecmascript-training/tree/master/source/src/es2016/21-asynchronous/__tests__)
 
 ## Built With
 
