@@ -4,8 +4,6 @@ An open source project to help you learn JS
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
 You will need:
@@ -17,40 +15,37 @@ You will need:
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Open your terminal, go to the folder and type this:
 
 ```
-Give the example
+./bin/snail start
 ```
 
-And repeat
+### View the logs
 
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+./bin/snail logs -f
+Attaching to ecmascripttraining_ecmascript_1
+...
+ecmascript_1  |
+ecmascript_1  | > ecmascript-training@1.1.0 test:tape /usr/src/app
+ecmascript_1  | > NODE_ENV=tests ./node_modules/.bin/tape -r babel-register ./src/**/__tests__/**/index.js | tap-notify | tap-diff
+ecmascript_1  |
+ecmascript_1  |         not implement yet
+ecmascript_1  |
+ecmascript_1  |   timing test
+ecmascript_1  |     ✔  should be equal
+ecmascript_1  |
+ecmascript_1  |   es2015  01-new-variables  let const real life
+ecmascript_1  |     ✔  should be equal
+ecmascript_1  |     ✔  should be equal
+ecmascript_1  |
+ecmascript_1  |   es2015  01-new-variables  let const
+ecmascript_1  |     ✔  should be equal
+ecmascript_1  |     ✔  should be equal
+ecmascript_1  |     ✔  should be equal
+ecmascript_1  |     ✔  should be equal
+...
 ```
 
 ## Content
