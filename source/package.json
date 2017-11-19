@@ -6,9 +6,16 @@
   "scripts": {
     "start": "npm run test:watch",
     "lint": "eslint --config=./.eslintrc src",
+    "lint:codeframe": "eslint --config=./.eslintrc src -f codeframe > eslint-codeframe-report",
     "lint:fix": "eslint --fix --config=./.eslintrc src",
     "test:tape": "NODE_ENV=tests ./node_modules/.bin/tape -r babel-register ./src/**/__tests__/**/index.js | tap-notify | tap-diff",
-    "test:watch": "nodemon --watch src -q -x 'npm run test:tape'"
+    "test:tape-file": "NODE_ENV=tests ./node_modules/.bin/tape -r babel-register ./src/**/__tests__/**/index.js | tap-notify | tap-diff > tape-test-report",
+    "test:watch": "nodemon --watch src -q -x 'npm run test:tape'",
+    "test:coverage": "./node_modules/.bin/nyc npm run test:tape",
+    "coverage:html": "./node_modules/.bin/nyc report --reporter=html",
+    "coverage:lcov": "./node_modules/.bin/nyc report --reporter=lcov",
+    "coverage:check": "nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "coverage": "npm run test:coverage && npm run coverage:lcov"
   },
   "author": "Hoang Nam <particle4dev@gmail.com>",
   "license": "MIT",
@@ -19,12 +26,11 @@
     "babel-preset-es2015-node5": "1.2.0",
     "babel-register": "^6.11.6",
     "deep-equal": "^1.0.1",
-    "eslint": "^3.2.2",
-    "eslint-config-airbnb": "^10.0.0",
-    "eslint-plugin-import": "^1.8.1",
-    "eslint-plugin-jsx-a11y": "^2.1.0",
-    "eslint-plugin-react": "^6.0.0",
+    "eslint": "4.3.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "2.7.0",
     "nodemon": "^1.9.2",
+    "nyc": "^11.2.1",
     "tap-diff": "^0.1.1",
     "tap-notify": "^1.0.0",
     "tape": "^4.6.0"
@@ -33,7 +39,15 @@
     "node-fetch": "^1.6.3"
   },
   "engines": {
-    "node": "6.7.0",
-    "npm": "3.10.10"
+    "node": "8.5.0",
+    "npm": "5.3.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [],
+    "report-dir": "./coverage"
   }
 }

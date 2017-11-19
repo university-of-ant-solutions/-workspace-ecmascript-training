@@ -6,7 +6,7 @@ test('es2015 \ 08-say-hello-to-spread-and-rest \ spreading into a function', (t)
   const newInventors = ['Musk', 'Jobs'];
   inventors.push(...newInventors);
   t.deepEqual(inventors, [
-    'Einstein', 'Newton', 'Galileo', 'Musk', 'Jobs'
+    'Einstein', 'Newton', 'Galileo', 'Musk', 'Jobs',
   ]);
 
   const name = ['Wes', 'Bos'];
@@ -14,5 +14,4 @@ test('es2015 \ 08-say-hello-to-spread-and-rest \ spreading into a function', (t)
     return (`Hey there ${first} ${last}`);
   }
   t.equal('Hey there Wes Bos', sayHi(...name));
-
 });

@@ -1,7 +1,6 @@
 import test from 'tape';
 
 test('es2015 \ 18-sets-and-weaksets \ sets brunch', (t) => {
-
   t.plan(5);
 
   const brunch = new Set();
@@ -18,5 +17,4 @@ test('es2015 \ 18-sets-and-weaksets \ sets brunch', (t) => {
   t.equal(line.next().value, 'Simone');
   t.equal(line.next().value, 'Heather');
   t.equal(line.next().value, 'Snickers');
-
 });

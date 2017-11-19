@@ -1,17 +1,16 @@
 import test from 'tape';
 
 test('es2015 \ 15-classes \ classes', (t) => {
-
   t.plan(8);
   // OLD
   function Dog(name, breed) {
     this.name = name;
     this.breed = breed;
   }
-  Dog.prototype.bark = function() {
+  Dog.prototype.bark = function () {
     return (`Bark Bark! My name is ${this.name}`);
   };
-  Dog.prototype.cuddle = function() {
+  Dog.prototype.cuddle = function () {
     return (`I love you owner!`);
   };
   const snickers = new Dog('Snickers', 'King Charles');
@@ -29,7 +28,7 @@ test('es2015 \ 15-classes \ classes', (t) => {
       this.breed = breed;
     }
     bark() {
-      return (`Bark Bark! My name is ${this.name}`)
+      return (`Bark Bark! My name is ${this.name}`);
     }
     cuddle() {
       return (`I love you owner!`);
@@ -53,5 +52,4 @@ test('es2015 \ 15-classes \ classes', (t) => {
   t.equal(sunny2.cuddle(), 'I love you owner!');
   t.equal(snickers2.bark(), 'Bark Bark! My name is Snickers');
   t.equal(sunny2.bark(), 'Bark Bark! My name is Sunny');
-
 });

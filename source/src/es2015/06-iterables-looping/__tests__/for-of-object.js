@@ -6,7 +6,7 @@ test('es2015 \ 06-iterables-looping \ for of examples', (t) => {
     color: 'Red',
     size: 'Medium',
     weight: 50,
-    sugar: 10
+    sugar: 10,
   };
   const r = [];
   for (const prop in apple) {

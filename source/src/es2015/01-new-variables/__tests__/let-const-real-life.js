@@ -8,8 +8,7 @@ test('es2015 \ 01-new-variables \ let const real life', (t) => {
   }
   try {
     console.log(name);
-  }
-  catch (e) {
+  } catch (e) {
     t.equal('name is not defined', e.message);
   }
 });

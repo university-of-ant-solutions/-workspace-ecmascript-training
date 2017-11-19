@@ -5,7 +5,7 @@ test('es2015 \ 03-template-strings \ template strings looping', (t) => {
   const dogs = [
     { name: 'Snickers', age: 2 },
     { name: 'Hugo', age: 8 },
-    { name: 'Sunny', age: 1 }
+    { name: 'Sunny', age: 1 },
   ];
   const markup = `
     <ul class="dogs">

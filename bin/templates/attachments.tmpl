@@ -1,0 +1,34 @@
+[{
+  "color": "#EBB73E",
+  "title": "Please click this link to view report online",
+  "title_link": "https://api.slack.com/",
+  "text": "This is the detail. Please @%GITLAB_USER_LOGIN%, take a moment to review !",
+  "fields": [
+    {
+      "title": "Project",
+      "value": "%GITLAB_PROJECT_URL%",
+      "short": false
+    },
+    {
+      "title": "Commit",
+      "value": "%GITLAB_PROJECT_URL%/commit/%GITLAB_COMMIT_SHA%",
+      "short": true
+    },
+    {
+      "title": "Author",
+      "value": "%GITLAB_USER_NAME%",
+      "short": true
+    },
+    {
+      "title": "Message",
+      "value": "%message%",
+      "short": false
+    },
+    {
+      "title": "Report",
+      "value": "%report%",
+      "short": false
+    }
+  ],
+  "ts": %date%
+}]

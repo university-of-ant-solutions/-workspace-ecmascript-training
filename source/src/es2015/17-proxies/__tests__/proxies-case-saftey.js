@@ -1,7 +1,6 @@
 import test from 'tape';
 
 test('es2015 \ 17-proxies \ proxies case saftey', (t) => {
-
   t.plan(1);
 
   const safeHandler = {
@@ -12,14 +11,12 @@ test('es2015 \ 17-proxies \ proxies case saftey', (t) => {
       }
       target[name] = value;
       return true;
-    }
+    },
   };
   const saftey = new Proxy({ id: 100 }, safeHandler);
   try {
     saftey.ID = 200;
-  }
-  catch(e){
+  } catch (e) {
     t.equal(e.message, 'Oops! Looks like like we already have a(n) ID property but with the case of id.');
   }
-
 });

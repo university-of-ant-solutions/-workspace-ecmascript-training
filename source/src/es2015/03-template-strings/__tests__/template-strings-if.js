@@ -5,7 +5,7 @@ test('es2015 \ 03-template-strings \ template strings if', (t) => {
   const song = {
     name: 'Dying to live',
     artist: 'Tupac',
-    featuring: 'Biggie Smalls'
+    featuring: 'Biggie Smalls',
   };
   const markup = `
     <div class="song">

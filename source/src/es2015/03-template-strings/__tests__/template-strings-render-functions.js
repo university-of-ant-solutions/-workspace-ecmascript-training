@@ -5,7 +5,7 @@ test('es2015 \ 03-template-strings \ template strings looping', (t) => {
   const beer = {
     name: 'Belgian Wit',
     brewery: 'Steam Whistle Brewery',
-    keywords: ['pale', 'cloudy', 'spiced', 'crisp']
+    keywords: ['pale', 'cloudy', 'spiced', 'crisp'],
   };
   function renderKeywords(keywords) {
     return `

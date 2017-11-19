@@ -38,5 +38,4 @@ test('es2015 \ 15-classes \ extending classes ANSWER', (t) => {
   t.equal(snickers.thirst, 90);
   t.equal(rhino.breed, undefined);
   t.deepEqual(snickers.breed, 'King Charles');
-
 });
